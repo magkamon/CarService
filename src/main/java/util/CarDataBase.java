@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -13,24 +13,40 @@ import java.util.List;
 
 public class CarDataBase {
 
-    public void saveCarList(List<Car> carsList, String filename) {
-        String fileWithExtension = filename + ".json";
-        if (!Files.exists(Paths.get(fileWithExtension))) {
+    private static final String CANNOT_OPEN_FILE_MESSAGE = "Nie można otworzyć pliku";
+
+    private boolean checkIfFileExists(String fileWithExtension){
+        return Files.exists(Paths.get(fileWithExtension));
+    }
+
+
+    private boolean ensureFileExistence(String fileWithExtension){
+        if (checkIfFileExists(fileWithExtension)) {
+            return true;
+        }
+        else {
             try {
                 Files.createFile(Paths.get(fileWithExtension));
             } catch (IOException e) {
                 e.printStackTrace();
-                return;
+                return false;
             }
         }
-        ObjectMapper objectMapper = new ObjectMapper();
-        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
-        try {
-            String carAsString = objectWriter.writeValueAsString(carsList);
-            Path path = Paths.get(fileWithExtension);
-            Files.write(path, carAsString.getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
+        return true;
+    }
+
+    public void saveCarList(List<Car> carsList, String filename) {
+        String fileWithExtension = filename + ".json";
+        if (ensureFileExistence(fileWithExtension)){
+            ObjectMapper objectMapper = new ObjectMapper();
+            ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
+            try {
+                String carAsString = objectWriter.writeValueAsString(carsList);
+                Path path = Paths.get(fileWithExtension);
+                Files.write(path, carAsString.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -43,7 +59,7 @@ public class CarDataBase {
     public List<Car> readCarList(String filename) {
         String fileWithExtension = filename + ".json";
         List<Car> CarList = new ArrayList<>();
-        if (Files.exists(Paths.get(fileWithExtension))) {
+        if (checkIfFileExists(fileWithExtension)) {
             ObjectMapper objectMapper = new ObjectMapper();
             Path path = Paths.get(fileWithExtension);
             try {
@@ -52,6 +68,9 @@ public class CarDataBase {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        else{
+            System.out.println(CANNOT_OPEN_FILE_MESSAGE);
         }
         return CarList;
     }

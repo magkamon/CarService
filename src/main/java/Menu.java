@@ -1,4 +1,6 @@
-import Util.Util;
+import repository.ActiveCarRepository;
+import repository.FixedCarRepository;
+import util.Util;
 
 public class Menu {
 
@@ -11,6 +13,7 @@ public class Menu {
             "5. Zamknij"
     };
     private static final String CHOICE_MESSAGE = "Twój wybór: ";
+    private static final String INVALID_OPTION_MESSAGE = "Wybierz jedną z dostępnych opcji.";
 
     public void start() {
         boolean shouldContinue;
@@ -22,8 +25,7 @@ public class Menu {
 
     private void printMenu() {
         System.out.println(MENU_HEADER);
-        for (String menuOption : MENU_OPTIONS
-        ) {
+        for (String menuOption : MENU_OPTIONS) {
             System.out.println(menuOption);
         }
     }
@@ -31,32 +33,33 @@ public class Menu {
     private boolean handleUserChoice() {
         String userChoice = getUserChoice();
 
+        GarageManager garageManager = new GarageManager(new ActiveCarRepository(), new FixedCarRepository());
         switch (userChoice) {
             case "1": {
-                System.out.println("1. Pokaż aktywną listę");
-                new Services().printCarList();
+                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
+                garageManager.printCarList();
                 break;
             }
             case "2": {
-                System.out.println("2. Dodaj nowy pojazd");
-                new Services().registerCar();
+                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
+                garageManager.registerCar();
                 break;
             }
             case "3": {
-                System.out.println("3. Napraw pojazd");
-                new Services().fixCar();
+                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
+                garageManager.fixCar();
                 break;
             }
             case "4": {
-                System.out.println("4. Wczytaj listę z pliku");
+                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
                 break;
             }
             case "5": {
-                System.out.println("5. Zamknij");
+                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
                 return false;
             }
             default: {
-                System.out.println("Wybierz jedną z dostępnych opcji.");
+                System.out.println(INVALID_OPTION_MESSAGE);
             }
         }
         return true;
