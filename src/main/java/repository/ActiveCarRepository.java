@@ -10,7 +10,8 @@ public class ActiveCarRepository implements CarRepository {
 
     @Override
     public List<Car> getAllCars() {
-        return null;
+        CarDataBase carDataBase = new CarDataBase();
+        return carDataBase.readCarList(TO_FIX_DIRECTORY);
     }
 
     @Override

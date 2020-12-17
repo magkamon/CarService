@@ -16,11 +16,15 @@ public class Menu {
     private static final String INVALID_OPTION_MESSAGE = "Wybierz jedną z dostępnych opcji.";
 
     public void start() {
-        boolean shouldContinue;
         do {
             printMenu();
-            shouldContinue = handleUserChoice();
-        } while (shouldContinue);
+            String userChoice = getUserChoice();
+            if (!userChoice.equals("5")) {
+                handleUserChoice(userChoice);
+            } else {
+                break;
+            }
+        } while (true);
     }
 
     private void printMenu() {
@@ -30,8 +34,8 @@ public class Menu {
         }
     }
 
-    private boolean handleUserChoice() {
-        String userChoice = getUserChoice();
+    private void handleUserChoice(String userChoice) {
+         //userChoice = getUserChoice();
 
         GarageManager garageManager = new GarageManager(new ActiveCarRepository(), new FixedCarRepository());
         switch (userChoice) {
@@ -56,13 +60,13 @@ public class Menu {
             }
             case "5": {
                 System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
-                return false;
+                //return false;
             }
             default: {
                 System.out.println(INVALID_OPTION_MESSAGE);
             }
         }
-        return true;
+        //return true;
     }
 
     private String getUserChoice() {

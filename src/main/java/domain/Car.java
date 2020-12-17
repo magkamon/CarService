@@ -1,5 +1,4 @@
 package domain;
-
 import java.util.Objects;
 
 public class Car {
@@ -65,5 +64,10 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name, color, productionDate);
+    }
+
+    @Override
+    public String toString() {
+        return name + ", " + color + ", " + productionDate;
     }
 }
