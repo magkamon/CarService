@@ -18,9 +18,9 @@ public class Menu {
     public void start() {
         do {
             printMenu();
-            String userChoice = getUserChoice();
-            if (!userChoice.equals("5")) {
-                handleUserChoice(userChoice);
+            int choiceNumber = Integer.parseInt(getUserChoice()) - 1;
+            if (choiceNumber != 5) {
+                handleUserChoice(choiceNumber);
             } else {
                 break;
             }
@@ -34,43 +34,38 @@ public class Menu {
         }
     }
 
-    private void handleUserChoice(String userChoice) {
-         //userChoice = getUserChoice();
-
+    private void handleUserChoice(int choiceNumber) {
         GarageManager garageManager = new GarageManager(new ActiveCarRepository(), new FixedCarRepository());
-        switch (userChoice) {
-            case "1": {
-                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
+        switch (choiceNumber) {
+            case 0: {
+                System.out.println(MENU_OPTIONS[choiceNumber]);
                 garageManager.printCarList();
                 break;
             }
-            case "2": {
-                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
+            case 1: {
+                System.out.println(MENU_OPTIONS[choiceNumber]);
                 garageManager.registerCar();
                 break;
             }
-            case "3": {
-                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
+            case 2: {
+                System.out.println(MENU_OPTIONS[choiceNumber]);
                 garageManager.fixCar();
                 break;
             }
-            case "4": {
-                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
+            case 3: {
+                System.out.println(MENU_OPTIONS[choiceNumber]);
                 break;
             }
-            case "5": {
-                System.out.println(MENU_OPTIONS[Integer.parseInt(userChoice)-1]);
-                //return false;
+            case 4: {
+                System.out.println(MENU_OPTIONS[choiceNumber]);
             }
             default: {
                 System.out.println(INVALID_OPTION_MESSAGE);
             }
         }
-        //return true;
     }
 
     private String getUserChoice() {
         return Util.readFromUser(CHOICE_MESSAGE);
     }
-
 }

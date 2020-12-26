@@ -25,7 +25,6 @@ public class GarageManager {
         this.fixedCarRepository = fixedCarRepository;
     }
 
-
     public void registerCar() {
         Car newCar = new Car(
                 Util.readFromUser(NAME_HEADER),
@@ -58,6 +57,4 @@ public class GarageManager {
             System.out.println((activeCars.indexOf(car) + 1) + ". " + car);
         }
     }
-
-
 }

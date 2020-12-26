@@ -15,25 +15,6 @@ public class CarDataBase {
 
     private static final String CANNOT_CREATE_FILE_MESSAGE = "Nie można stworzyć nowego pliku";
 
-    private boolean checkIfFileExists(String fileWithExtension){
-        return Files.exists(Paths.get(fileWithExtension));
-    }
-
-    private boolean ensureFileExistence(String fileWithExtension){
-        if (checkIfFileExists(fileWithExtension)) {
-            return true;
-        }
-
-        try {
-            Files.createFile(Paths.get(fileWithExtension));
-        } catch (IOException e) {
-            System.out.println(CANNOT_CREATE_FILE_MESSAGE);
-            return false;
-        }
-
-        return true;
-    }
-
     public void saveCarList(List<Car> carsList, String filename) {
         String fileWithExtension = filename + ".json";
         if (ensureFileExistence(fileWithExtension)){
@@ -64,5 +45,24 @@ public class CarDataBase {
         }
 
         return carList;
+    }
+
+    private boolean checkIfFileExists(String fileWithExtension){
+        return Files.exists(Paths.get(fileWithExtension));
+    }
+
+    private boolean ensureFileExistence(String fileWithExtension){
+        if (checkIfFileExists(fileWithExtension)) {
+            return true;
+        }
+
+        try {
+            Files.createFile(Paths.get(fileWithExtension));
+        } catch (IOException e) {
+            System.out.println(CANNOT_CREATE_FILE_MESSAGE);
+            return false;
+        }
+
+        return true;
     }
 }

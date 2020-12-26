@@ -7,6 +7,5 @@ import java.util.List;
 public interface CarRepository {
     List<Car> getAllCars();
     void addCar(Car car);
-    void updateCar(Car car);
     void deleteCar(Car car);
 }

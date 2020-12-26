@@ -23,11 +23,6 @@ public class ActiveCarRepository implements CarRepository {
 
     }
 
-    @Override
-    public void updateCar(Car car) {
-
-
-    }
 
     @Override
     public void deleteCar(Car car) {
