@@ -20,4 +20,7 @@ public class Util {
         return userConfirmation.equalsIgnoreCase("T");
     }
 
+    public static boolean isNumber(String number){
+        return number.matches("[0-9]+");
+    }
 }

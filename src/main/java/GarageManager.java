@@ -16,6 +16,7 @@ public class GarageManager {
     private static final String USER_CHOICE_MESSAGE = "Wybrano: ";
     private static final String CAR_NUMBER_TO_FIX_MESSAGE = "Podaj numer samochodu do naprawy: ";
     private static final String EMPTY_LIST_MESSAGE = "Aktulanie lista jest pusta.";
+    private static final String PRODUCTION_DATE_ERROR = "Rocznik został podany niepoprawnie, podaj dane jeszcze raz";
 
     private final CarRepository activeCarRepository;
     private final CarRepository fixedCarRepository;
@@ -31,7 +32,10 @@ public class GarageManager {
                 Util.readFromUser(COLOR_HEADER),
                 Util.readFromUser(PRODUCTION_HEADER)
         );
-
+        while(!Util.isNumber(newCar.getProductionDate())){
+            System.out.println(PRODUCTION_DATE_ERROR);
+            newCar.setProductionDate(Util.readFromUser(PRODUCTION_HEADER));
+        }
         if (Util.readUserConfirmation(newCar.toString())) {
             activeCarRepository.addCar(newCar);
         }
