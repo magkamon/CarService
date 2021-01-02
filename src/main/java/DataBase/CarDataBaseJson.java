@@ -1,8 +1,9 @@
-package util;
+package DataBase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import domain.Car;
+import util.FileUtil;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,13 +12,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarDataBase {
+public class CarDataBaseJson implements CarDataBase{
 
-    private static final String CANNOT_CREATE_FILE_MESSAGE = "Nie można stworzyć nowego pliku";
-
+@Override
     public void saveCarList(List<Car> carsList, String filename) {
         String fileWithExtension = filename + ".json";
-        if (ensureFileExistence(fileWithExtension)){
+        if (FileUtil.ensureFileExistence(fileWithExtension)){
             ObjectMapper objectMapper = new ObjectMapper();
             ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
             try {
@@ -30,10 +30,11 @@ public class CarDataBase {
         }
     }
 
+@Override
     public List<Car> readCarList(String filename) {
         String fileWithExtension = filename + ".json";
         List<Car> carList = new ArrayList<>();
-        if (checkIfFileExists(fileWithExtension)) {
+        if (FileUtil.checkIfFileExists(fileWithExtension)) {
             ObjectMapper objectMapper = new ObjectMapper();
             Path path = Paths.get(fileWithExtension);
             try {
@@ -43,26 +44,6 @@ public class CarDataBase {
                 e.printStackTrace();
             }
         }
-
         return carList;
-    }
-
-    private boolean checkIfFileExists(String fileWithExtension){
-        return Files.exists(Paths.get(fileWithExtension));
-    }
-
-    private boolean ensureFileExistence(String fileWithExtension){
-        if (checkIfFileExists(fileWithExtension)) {
-            return true;
-        }
-
-        try {
-            Files.createFile(Paths.get(fileWithExtension));
-        } catch (IOException e) {
-            System.out.println(CANNOT_CREATE_FILE_MESSAGE);
-            return false;
-        }
-
-        return true;
     }
 }

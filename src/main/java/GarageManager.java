@@ -2,11 +2,7 @@ import repository.CarRepository;
 import util.Util;
 import domain.Car;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
-
-import util.CarDataBase;
 
 public class GarageManager {
 

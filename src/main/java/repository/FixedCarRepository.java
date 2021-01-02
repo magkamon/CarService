@@ -1,7 +1,8 @@
 package repository;
 
+import DataBase.CarDataBase;
+import DataBase.CarDataBaseXml;
 import domain.Car;
-import util.CarDataBase;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class FixedCarRepository implements CarRepository {
 
     @Override
     public void addCar(Car car) {
-        CarDataBase carDataBase = new CarDataBase();
+        CarDataBase carDataBase = new CarDataBaseXml();
         List<Car> activeCars = carDataBase.readCarList(FIXED_DIRECTORY);
         activeCars.add(car);
         carDataBase.saveCarList(activeCars, FIXED_DIRECTORY);
