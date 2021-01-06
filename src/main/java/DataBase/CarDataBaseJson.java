@@ -15,13 +15,13 @@ import java.util.List;
 public class CarDataBaseJson implements CarDataBase{
 
 @Override
-    public void saveCarList(List<Car> carsList, String filename) {
+    public void saveCarList(List<Car> cars, String filename) {
         String fileWithExtension = filename + ".json";
         if (FileUtil.ensureFileExistence(fileWithExtension)){
             ObjectMapper objectMapper = new ObjectMapper();
             ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
             try {
-                String carAsString = objectWriter.writeValueAsString(carsList);
+                String carAsString = objectWriter.writeValueAsString(cars);
                 Path path = Paths.get(fileWithExtension);
                 Files.write(path, carAsString.getBytes());
             } catch (IOException e) {
@@ -33,17 +33,17 @@ public class CarDataBaseJson implements CarDataBase{
 @Override
     public List<Car> readCarList(String filename) {
         String fileWithExtension = filename + ".json";
-        List<Car> carList = new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
         if (FileUtil.checkIfFileExists(fileWithExtension)) {
             ObjectMapper objectMapper = new ObjectMapper();
             Path path = Paths.get(fileWithExtension);
             try {
                 byte[] myJson = Files.readAllBytes(path);
-                carList = objectMapper.readValue(myJson, objectMapper.getTypeFactory().constructCollectionType(List.class, Car.class));
+                cars = objectMapper.readValue(myJson, objectMapper.getTypeFactory().constructCollectionType(List.class, Car.class));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        return carList;
+        return cars;
     }
 }

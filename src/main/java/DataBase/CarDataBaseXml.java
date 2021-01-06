@@ -16,12 +16,12 @@ import java.util.List;
 public class CarDataBaseXml implements CarDataBase{
 
     @Override
-    public void saveCarList(List<Car> carsList, String filename) {
+    public void saveCarList(List<Car> cars, String filename) {
         String fileWithExtension = filename + ".xml";
         if (FileUtil.ensureFileExistence(fileWithExtension)){
             try {
                 CarsXml carsXml = new CarsXml();
-                carsXml.setCars(carsList);
+                carsXml.setCars(cars);
                 JAXBContext context = JAXBContext.newInstance(CarsXml.class);
                 Marshaller marshaller = context.createMarshaller();
                 marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -38,7 +38,7 @@ public class CarDataBaseXml implements CarDataBase{
     @Override
     public List<Car> readCarList(String filename) {
         String fileWithExtension = filename + ".xml";
-        List<Car> carList = new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
         if (FileUtil.checkIfFileExists(fileWithExtension)) {
             try {
                 Path path = Paths.get(fileWithExtension);
@@ -46,11 +46,11 @@ public class CarDataBaseXml implements CarDataBase{
                 JAXBContext context = JAXBContext.newInstance(CarsXml.class);
                 Unmarshaller unmarshaller = context.createUnmarshaller();
                 CarsXml xmlCar = (CarsXml) unmarshaller.unmarshal(file);
-                carList = xmlCar.getCars();
+                cars = xmlCar.getCars();
             } catch (JAXBException e) {
                 e.printStackTrace();
             }
         }
-        return carList;
+        return cars;
     }
 }

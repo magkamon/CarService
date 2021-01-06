@@ -9,8 +9,7 @@ public class Menu {
             "1. Pokaż aktywną listę",
             "2. Dodaj nowy pojazd",
             "3. Napraw pojazd",
-            "4. Wczytaj listę z pliku",
-            "5. Zamknij"
+            "4. Zamknij"
     };
     private static final String CHOICE_MESSAGE = "Twój wybór: ";
     private static final String INVALID_OPTION_MESSAGE = "Wybierz jedną z dostępnych opcji.";
@@ -18,9 +17,9 @@ public class Menu {
     public void start() {
         do {
             printMenu();
-            int choiceNumber = Integer.parseInt(getUserChoice()) - 1;
-            if (choiceNumber != 5) {
-                handleUserChoice(choiceNumber);
+            int choiceNumber = Integer.parseInt(getUserChoice());
+            if (choiceNumber != 4) {
+                handleUserChoice(choiceNumber - 1);
             } else {
                 break;
             }
@@ -36,28 +35,19 @@ public class Menu {
 
     private void handleUserChoice(int choiceNumber) {
         GarageManager garageManager = new GarageManager(new ActiveCarRepository(), new FixedCarRepository());
+        System.out.println(MENU_OPTIONS[choiceNumber]);
         switch (choiceNumber) {
             case 0: {
-                System.out.println(MENU_OPTIONS[choiceNumber]);
                 garageManager.printCarList();
                 break;
             }
             case 1: {
-                System.out.println(MENU_OPTIONS[choiceNumber]);
                 garageManager.registerCar();
                 break;
             }
             case 2: {
-                System.out.println(MENU_OPTIONS[choiceNumber]);
                 garageManager.fixCar();
                 break;
-            }
-            case 3: {
-                System.out.println(MENU_OPTIONS[choiceNumber]);
-                break;
-            }
-            case 4: {
-                System.out.println(MENU_OPTIONS[choiceNumber]);
             }
             default: {
                 System.out.println(INVALID_OPTION_MESSAGE);

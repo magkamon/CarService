@@ -25,7 +25,7 @@ public class FixedCarRepository implements CarRepository {
         carDataBase.saveCarList(activeCars, FIXED_DIRECTORY);
     }
 
-    //TODO/FIXME
+    //TODO
     @Override
     public void deleteCar(Car car) {
 
