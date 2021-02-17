@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Customer {
@@ -10,12 +11,12 @@ public class Customer {
     private String email;
     private final UUID uuid;
 
-    public Customer (String firstname, String surname, int phone, String email, UUID uuid){
+    public Customer (String firstname, String surname, int phone, String email){
         this.firstname = firstname;
         this.surname = surname;
         this.phone = phone;
         this.email = email;
-        this.uuid = uuid;
+        this.uuid = UUID.randomUUID();
     }
 
     public String getFirstname() {
@@ -54,4 +55,16 @@ public class Customer {
         return uuid;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(uuid, customer.uuid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, surname, phone, email, uuid);
+    }
 }
