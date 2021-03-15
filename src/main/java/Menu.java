@@ -34,19 +34,21 @@ public class Menu {
     }
 
     private void handleUserChoice(int choiceNumber) {
-        GarageManager garageManager = new GarageManager(new ActiveCarRepository(), new FixedCarRepository());
+        GarageService garageService = new GarageService(new ActiveCarRepository(), new FixedCarRepository());
+        GarageView garageView = new GarageView(garageService);
+
         System.out.println(MENU_OPTIONS[choiceNumber]);
         switch (choiceNumber) {
             case 0: {
-                garageManager.printCarList();
+                garageView.printCarList();
                 break;
             }
             case 1: {
-                garageManager.registerCar();
+                garageView.showRegisterCarView();
                 break;
             }
             case 2: {
-                garageManager.fixCar();
+                garageView.showFixCarView();
                 break;
             }
             default: {
