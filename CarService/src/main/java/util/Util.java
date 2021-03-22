@@ -21,6 +21,6 @@ public class Util {
     }
 
     public static boolean isNumber(String number){
-        return number.matches("[0-9]+");
+        return number.matches("^\\d{4}$");
     }
 }
