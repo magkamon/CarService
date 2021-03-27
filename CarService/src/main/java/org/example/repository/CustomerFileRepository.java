@@ -1,8 +1,8 @@
-package repository;
+package org.example.repository;
 
-import DataBase.CustomerDataBase;
-import DataBase.CustomerDataBaseJson;
-import domain.Customer;
+import org.example.DataBase.CustomerDataBase;
+import org.example.DataBase.CustomerDataBaseJson;
+import org.example.domain.Customer;
 
 import java.util.List;
 

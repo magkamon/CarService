@@ -1,13 +1,15 @@
-package repository;
+package org.example.repository;
 
-import DataBase.CarDataBase;
-import DataBase.CarDataBaseXml;
-import domain.Car;
+import org.example.DataBase.CarDataBase;
+import org.example.DataBase.CarDataBaseXml;
+import org.example.domain.Car;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class FixedCarRepository implements CarRepository {
 
     private static final String FIXED_DIRECTORY = getCurrentDate();

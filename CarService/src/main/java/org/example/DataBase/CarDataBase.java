@@ -1,6 +1,6 @@
-package DataBase;
+package org.example.DataBase;
 
-import domain.Car;
+import org.example.domain.Car;
 
 import java.util.List;
 

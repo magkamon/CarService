@@ -1,0 +1,277 @@
+.errorClass {
+    width: 100%;
+    float: right;
+    text-align: right;
+    color: red;
+    font-size: 0.75em;
+    padding-right: 5px;
+}
+.custom-select,
+.input-group .form-control{
+    font-size: 0.9em;
+}
+.border-rounded{
+    border-radius: 3px;
+}
+.paddingClass{
+    padding: 2px;
+    width: 208px;
+}
+form {
+    overflow: hidden;
+    width: 470px;
+}
+
+label {
+    float: left;
+    width: 200px;
+    padding-right: 24px;
+    margin-top: 10px;
+}
+
+input,select{
+    float: left;
+    width: 200px;
+    margin-top: 10px;
+}
+
+button {
+
+    width: 200px;
+    margin-top: 20px;
+
+}
+.body-background{
+    background: #a0a7be;
+}
+
+.fluidBox{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fluidBox .card{
+    border: 0px;
+}
+
+.card-body .form-group {
+    margin-bottom: 0px;
+}
+
+.form-group .col-form-label {
+    margin: 10px 0px 0px 0px;
+    padding-bottom: 0px;
+}
+
+body{
+    margin-top:20px;
+    background:#eee;
+}
+
+
+.need-request .row {
+    margin: 0;
+    padding: 15px 0;
+    margin-bottom: 15px
+}
+
+.need-request div[class*='col-'] {
+    border-right: 1px solid #eee
+}
+
+.need-request .text h3 {
+    margin-bottom: 0;
+    color: #555
+}
+
+.need-request .text small {
+    color: #aaa;
+    font-size: 0.75em;
+}
+.need-request small{
+    margin-bottom: 1px;
+}
+.need-request .need-request-date {
+    position: relative;
+    min-height: 40px;
+}
+.need-request .need-request-date:before {
+    position: absolute;
+    font-family: 'FontAwesome';
+    content: "\f2b5";
+    opacity: 10%;
+    color: forestgreen;
+    font-size: 54px;
+    transform: rotate(-15deg);
+}
+
+.form-group label,
+.need-request .need-request-date span {
+    font-size: 0.9em;
+    color: #999
+}
+.form-group label{
+    font-weight: bold;
+}
+.card .card-header{
+    background-color: darkolivegreen;
+}
+.btn-success {
+    color: #fff;
+    background-color: darkolivegreen;
+    border-color: darkgreen;
+}
+.need-request .image {
+    max-width: 50px;
+    min-width: 50px;
+    height: 50px;
+    margin-right: 15px
+}
+
+.need-request .time,
+.need-request .comments,
+.need-request .need-request-progress {
+    margin-top: 2px;
+    color: #999;
+    font-size: 0.9em;
+    margin-right: 20px
+}
+
+.need-request .time i,
+.need-request .comments i,
+.need-request .need-request-progress i {
+    margin-right: 5px
+}
+.need-request a.header-link {
+    color: #999;
+}
+.need-request a.header-link {
+    text-decoration: none;
+}
+.need-request a.table-link {
+    color: #999;
+    margin: 0 5px;
+    font-size: 1.125em;
+}
+.need-request a.table-link:hover {
+    text-decoration: none;
+    color: #2aa493;
+}
+.need-request a.table-link.danger {
+    color: #fe635f;
+}
+.need-request a.table-link.danger:hover {
+    color: #dd504c;
+}
+.need-request .need-request-progress {
+    width: 200px
+}
+
+.need-request .need-request-progress .progress {
+    height: 4px
+}
+
+.need-request .card {
+    margin-bottom: 0
+}
+
+@media (max-width: 991px) {
+    .need-request .right-col {
+        margin-top: 20px;
+        margin-left: 65px
+    }
+    .need-request .need-request-progress {
+        width: 150px
+    }
+}
+
+@media (max-width: 480px) {
+    .need-request .need-request-progress {
+        display: none
+    }
+}
+.has-shadow {
+    -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+}
+.bg-white {
+    background: #fff !important;
+}
+
+.bg-red {
+    background: #ff7676 !important;
+    color: #fff
+}
+
+.bg-red:hover {
+    color: #fff
+}
+
+.bg-blue {
+    background: cornflowerblue !important;
+    color: #fff
+}
+
+.bg-blue:hover {
+    color: #fff
+}
+
+.bg-yellow {
+    background: #eef157 !important;
+    color: #fff
+}
+
+.bg-yellow:hover {
+    color: #fff
+}
+
+.bg-green {
+    background: forestgreen !important;
+    color: #fff
+}
+
+.bg-green:hover {
+    color: #fff
+}
+
+.bg-orange {
+    background: darkorange !important;
+    color: #fff
+}
+
+.bg-orange:hover {
+    color: #fff
+}
+
+.bg-violet {
+    background: #796AEE !important;
+    color: #fff
+}
+
+.bg-violet:hover {
+    color: #fff
+}
+
+.bg-gray {
+    background: #ced4da !important
+}
+
+.need-request .high {
+    border-left: 2px solid #f86c6b
+}
+
+.need-request .medium {
+    border-left: 2px solid #f8cb00
+}
+
+.need-request .low {
+    border-left: 2px solid #4dbd74
+}
+
+.need-request .leftBorder {
+    border-left: 4px solid green
+}
+
+.border-rounded {
+    border-radius: 3px;
+}

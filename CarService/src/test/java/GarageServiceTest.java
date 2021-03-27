@@ -1,9 +1,9 @@
-import domain.Car;
+import org.example.domain.Car;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
-import repository.ActiveCarRepository;
-import repository.FixedCarRepository;
+import org.example.repository.ActiveCarRepository;
+import org.example.repository.FixedCarRepository;
+import org.example.service.GarageService;
 
 import java.util.ArrayList;
 import java.util.List;

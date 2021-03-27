@@ -9,13 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
-
     <modules>
         <module>CarService</module>
         <module>CarServiceConsole</module>
         <module>CarServiceWeb</module>
     </modules>
-
 
     <properties>
         <java.version>11</java.version>

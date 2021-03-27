@@ -1,9 +1,9 @@
-package DataBase;
+package org.example.DataBase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import domain.Car;
-import util.FileUtil;
+import org.example.domain.Car;
+import org.example.util.FileUtil;
 
 import java.io.IOException;
 import java.nio.file.Files;

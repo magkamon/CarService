@@ -1,5 +1,6 @@
-import domain.Car;
-import util.Util;
+import org.example.domain.Car;
+import org.example.service.GarageService;
+import org.example.util.Util;
 
 import java.util.List;
 

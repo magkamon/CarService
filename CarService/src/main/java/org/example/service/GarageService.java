@@ -1,15 +1,21 @@
-import domain.Car;
-import repository.ActiveCarRepository;
-import repository.FixedCarRepository;
-import util.Util;
+package org.example.service;
+
+import org.example.domain.Car;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.example.repository.ActiveCarRepository;
+import org.example.repository.FixedCarRepository;
+import org.example.util.Util;
 
 import java.util.List;
 
+@Component
 public class GarageService {
 
     ActiveCarRepository activeCarRepository;
     FixedCarRepository fixedCarRepository;
 
+    @Autowired
     public GarageService(ActiveCarRepository activeCarRepository, FixedCarRepository fixedCarRepository) {
         this.activeCarRepository = activeCarRepository;
         this.fixedCarRepository = fixedCarRepository;

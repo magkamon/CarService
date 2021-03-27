@@ -1,7 +1,7 @@
-package DataBase;
+package org.example.DataBase;
 
-import domain.Car;
-import util.FileUtil;
+import org.example.domain.Car;
+import org.example.util.FileUtil;
 
 import javax.xml.bind.*;
 import java.io.File;
