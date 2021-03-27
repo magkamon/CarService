@@ -1,10 +1,14 @@
-package repository;
+package org.example.repository;
 
-import DataBase.CarDataBase;
-import domain.Car;
-import DataBase.CarDataBaseJson;
+import org.example.DataBase.CarDataBase;
+import org.example.domain.Car;
+import org.example.DataBase.CarDataBaseJson;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+
+@Component
 public class ActiveCarRepository implements CarRepository {
 
     private static final String TO_FIX_DIRECTORY = "active";

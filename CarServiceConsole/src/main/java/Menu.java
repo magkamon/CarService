@@ -1,6 +1,7 @@
-import repository.ActiveCarRepository;
-import repository.FixedCarRepository;
-import util.Util;
+import org.example.repository.ActiveCarRepository;
+import org.example.repository.FixedCarRepository;
+import org.example.service.GarageService;
+import org.example.util.Util;
 
 public class Menu {
 

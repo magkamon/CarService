@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{basicForm.appName}"></title>
+    <link rel="stylesheet" th:href="@{/css/Style.css}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</head>
+<body class="page">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" th:text="#{basicForm.appName}"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" th:text="#{basicForm.welcome}"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:text="#{basicForm.logging}"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/car/create}" th:text="#{basicForm.newCarRegistration}"></a>
+                </li>
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="#{basicForm.newCarRegistration}">-->
+<!--                    </a>-->
+<!--&lt;!&ndash;                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a class="dropdown-item" th:href="@{/volunteer/create}" href="#">Wolontariusza</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a class="dropdown-item" th:href="@{/need-request/create}" href="#">Osoby potrzebującej pomocy</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </ul>&ndash;&gt;-->
+<!--                </li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="#{basicForm.activeCarList}">
+                    </a>
+<!--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                        <li><a class="dropdown-item" th:href="@{/volunteer/all}" href="#">Lista Wolontariuszy</a></li>-->
+<!--                        <li><a class="dropdown-item" th:href="@{/need-request/all}" href="#">Lista zleceń pomocy</a></li>-->
+<!--                    </ul>-->
+                </li>
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                        Edycja-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                        <li><a class="dropdown-item" th:href="@{/volunteer/search-to-edit}" href="#">Danych wolontariusza</a></li>-->
+<!--                        <li><a class="dropdown-item" th:href="@{/need-request/edit}" href="#" >Zgłoszenia pomocy</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                        Wyszukaj-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                        <li><a class="dropdown-item" th:href="@{/volunteer/search}" href="#">Wolontariusza</a></li>-->
+<!--                        <li><a class="dropdown-item" th:href="@{/need-request/search}" href="#" >Zgłoszenie pomocy</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Szukaj" aria-label="Search">
+                <button type="button" class="btn btn-outline-primary">Szukaj</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<main>
+    <p></p>
+    <h1 th:text="#{index.welcomeMessage}"></h1>
+</main>
+</body>
+</html>

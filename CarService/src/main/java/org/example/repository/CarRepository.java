@@ -1,6 +1,6 @@
-package repository;
+package org.example.repository;
 
-import domain.Car;
+import org.example.domain.Car;
 
 import java.util.List;
 

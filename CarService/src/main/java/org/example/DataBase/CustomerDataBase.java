@@ -1,6 +1,6 @@
-package DataBase;
+package org.example.DataBase;
 
-import domain.Customer;
+import org.example.domain.Customer;
 
 import java.util.List;
 
