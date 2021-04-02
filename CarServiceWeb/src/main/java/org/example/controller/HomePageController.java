@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 @Controller
 public class HomePageController {
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String getIndex(Model model){
         model.addAttribute("home");
         return "home";
